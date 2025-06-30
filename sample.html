@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Technology Stack Slider</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+   body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #05151C, #0b2f2f, #116758);
+  color: white;
+  overflow-x: hidden;
+  height: auto;              
+  min-height: unset;         
+}
+    .tech-stack {
+      padding: 60px 20px 30px;
+      text-align: center;
+    }
+
+    .tag-label {
+      display: inline-block;
+      padding: 10px 30px;
+      background: rgba(14, 31, 37, 0.6);
+      color: #65efcc;
+      border: 1px solid #1c4343;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      backdrop-filter: blur(10px);
+      margin-bottom: 20px;
+    }
+
+    .section-header h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 20px 0;
+      background: linear-gradient(to right, #02b98f, #65efcc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      max-width: 1200px;
+      margin-inline: auto;
+    }
+
+    .tag {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: 2px solid #02b98f;
+      background: transparent;
+      color: #02b98f;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .tag::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: #02b98f;
+      transition: left 0.3s;
+      z-index: -1;
+    }
+
+    .tag:hover::before,
+    .tag.active::before {
+      left: 0;
+    }
+
+    .tag:hover,
+    .tag.active {
+      color: #ffffff;
+    }
+
+    .slider-container {
+      overflow: hidden;
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .slide {
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px 10px;
+  box-sizing: border-box;
+}
+
+    .cert-box {
+      background: rgba(14, 31, 37, 0.45);
+      border: 1px solid #176452;
+      border-radius: 14px;
+      padding: 25px;
+      text-align: center;
+      min-width: 140px;
+      max-width: 180px;
+      flex: 1 1 160px;
+      backdrop-filter: blur(8px);
+      transition: transform 0.4s, box-shadow 0.3s;
+    }
+
+    .cert-box:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 20px #02b98f50;
+    }
+
+    .cert-title {
+      font-size: 1.05rem;
+      color: #65efcc;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    @media (max-width: 992px) {
+      .section-header h1 {
+        font-size: 2.2rem;
+      }
+
+      .cert-box {
+        flex: 1 1 42%;
+      }
+
+      .tag {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section-header h1 {
+        font-size: 1.8rem;
+      }
+
+      .tag-label {
+        font-size: 0.8rem;
+        padding: 6px 20px;
+      }
+
+      .tag {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+      }
+
+      .cert-box {
+        flex: 1 1 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="tech-stack">
+    <div class="section-header">
+      <div><span class="tag-label">Technology Stack Used By The MSP</span></div>
+      <h1>Essential Tools That Ensure<br>Seamless Workflow</h1>
+    </div>
+
+    <div class="tag-container" role="tablist">
+      <button class="tag active" data-index="0">Certifications</button>
+      <button class="tag" data-index="1">RMM</button>
+      <button class="tag" data-index="2">SIEM</button>
+      <button class="tag" data-index="3">Remote Desktop</button>
+      <button class="tag" data-index="4">Ticketing & PSA</button>
+      <button class="tag" data-index="5">Backup Tools & DR</button>
+      <button class="tag" data-index="6">Networking</button>
+      <button class="tag" data-index="7">Antivirus & EDR</button>
+      <button class="tag" data-index="8">Email & Migration</button>
+      <button class="tag" data-index="9">Docs & Password Management</button>
+      <button class="tag" data-index="10">Microsoft</button>
+    </div>
+  </section>
+
+  <div class="slider-container">
+    <div class="slider-track">
+      <!-- Slides (unchanged content structure, can be edited for more styling) -->
+      <div class="slide">
+        <div class="cert-box"><div class="cert-title">Microsoft</div></div>
+        <div class="cert-box"><div class="cert-title">RedHat</div></div>
+        <div class="cert-box"><div class="cert-title">PaloAlto</div></div>
+        <div class="cert-box"><div class="cert-title">NASSCOM</div></div>
+        <div class="cert-box"><div class="cert-title">CISCO</div></div>
+        <div class="cert-box"><div class="cert-title">AWS</div></div>
+        <div class="cert-box"><div class="cert-title">CompTIA</div></div>
+        <div class="cert-box"><div class="cert-title">Fortinet</div></div>
+      </div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">Kaseya</div></div><div class="cert-box"><div class="cert-title">ConnectWise</div></div><div class="cert-box"><div class="cert-title">NinjaRMM</div></div></div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">Splunk</div></div><div class="cert-box"><div class="cert-title">IBM QRadar</div></div></div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">AnyDesk</div></div><div class="cert-box"><div class="cert-title">TeamViewer</div></div></div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">JIRA</div></div><div class="cert-box"><div class="cert-title">ServiceNow</div></div></div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">Veeam</div></div><div class="cert-box"><div class="cert-title">Acronis</div></div></div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">Cisco</div></div><div class="cert-box"><div class="cert-title">Juniper</div></div></div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">CrowdStrike</div></div><div class="cert-box"><div class="cert-title">Bitdefender</div></div></div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">Google Workspace</div></div><div class="cert-box"><div class="cert-title">Microsoft 365</div></div></div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">LastPass</div></div><div class="cert-box"><div class="cert-title">Bitwarden</div></div></div>
+      <div class="slide"><div class="cert-box"><div class="cert-title">Azure</div></div><div class="cert-box"><div class="cert-title">Intune</div></div></div>
+    </div>
+  </div>
+
+  <script>
+    const tags = document.querySelectorAll('.tag');
+    const sliderTrack = document.querySelector('.slider-track');
+
+    tags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        tags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+
+        const index = parseInt(tag.dataset.index) || 0;
+        const offset = index * window.innerWidth;
+
+        sliderTrack.style.transform = `translateX(-${offset}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
